@@ -24,5 +24,27 @@ namespace NetAz_Calculatrice
         {
             InitializeComponent();
         }
+
+        private void MemoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine($"Memory Button : {((Button)e.OriginalSource).Content}");
+            e.Handled = true;
+        }
+
+        private void OperationButton_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine($"Operation Button : {((Button)e.OriginalSource).Content}");
+        }
+
+        private void NumericButton_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine($"Numeric Button : {((Button)e.OriginalSource).Content}");
+            e.Handled = true;
+
+            if(TBScreen.Text == "0")
+                TBScreen.Text = ((Button)e.OriginalSource).Content.ToString();
+            else
+                TBScreen.Text += ((Button)e.OriginalSource).Content.ToString();
+        }
     }
 }

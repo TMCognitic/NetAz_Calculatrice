@@ -15,10 +15,10 @@
         <TextBlock Text="{StaticResource AppTitle}" Foreground="White" TextAlignment="Center" />
         <Border Grid.Row="1" Style="{StaticResource ScreenBorderStyle}">
             <Viewbox HorizontalAlignment="Right" Margin="5,0">
-                <TextBlock Text="0" />
+                <TextBlock Text="0" x:Name="TBScreen" />
             </Viewbox>
         </Border>
-        <Grid Grid.Row="2">            
+        <Grid Grid.Row="2" Button.Click="OperationButton_Click">            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -34,23 +34,44 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <!--#region Boutons mémoires -->
-            <Button Content="MC" Style="{StaticResource MemoryButtonStyle}" />
-            <Button Grid.Column="1" Content="M+" Style="{StaticResource MemoryButtonStyle}" />
-            <Button Grid.Column="2" Content="M-" Style="{StaticResource MemoryButtonStyle}" />
-            <Button Grid.Column="3" Content="MR" Style="{StaticResource MemoryButtonStyle}" />
+            <Grid Grid.ColumnSpan="4" Button.Click="MemoryButton_Click">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Content="MC" Style="{StaticResource MemoryButtonStyle}" />
+                <Button Grid.Column="1" Content="M+" Style="{StaticResource MemoryButtonStyle}" />
+                <Button Grid.Column="2" Content="M-" Style="{StaticResource MemoryButtonStyle}" />
+                <Button Grid.Column="3" Content="MR" Style="{StaticResource MemoryButtonStyle}" />
+            </Grid>            
             <!--#endregion-->
             <!--#region Boutons mumériques -->
-            <Button Grid.Row="2" Content="7" Style="{StaticResource NumericButtonStyle}" />
-            <Button Grid.Row="2" Grid.Column="1" Content="8" Style="{StaticResource NumericButtonStyle}" />
-            <Button Grid.Row="2" Grid.Column="2" Content="9" Style="{StaticResource NumericButtonStyle}" />
-            <Button Grid.Row="3" Content="4" Style="{StaticResource NumericButtonStyle}" />
-            <Button Grid.Row="3" Grid.Column="1"  Content="5" Style="{StaticResource NumericButtonStyle}" />
-            <Button Grid.Row="3" Grid.Column="2"  Content="6" Style="{StaticResource NumericButtonStyle}" />
-            <Button Grid.Row="4" Content="1" Style="{StaticResource NumericButtonStyle}" />
-            <Button Grid.Row="4" Grid.Column="1"  Content="2" Style="{StaticResource NumericButtonStyle}" />
-            <Button Grid.Row="4" Grid.Column="2"  Content="3" Style="{StaticResource NumericButtonStyle}" />
-            <Button Grid.Row="5" Grid.ColumnSpan="2" Content="0" Style="{StaticResource NumericButtonStyle}" />
-            <Button Grid.Row="5"  Grid.Column="2"  Content="." Style="{StaticResource NumericButtonStyle}" />
+            <Grid Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="4" Button.Click="NumericButton_Click">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Button Content="7" Style="{StaticResource NumericButtonStyle}" />
+                <Button Grid.Column="1" Content="8" Style="{StaticResource NumericButtonStyle}" />
+                <Button Grid.Column="2" Content="9" Style="{StaticResource NumericButtonStyle}" />
+                <Button Grid.Row="1" Content="4" Style="{StaticResource NumericButtonStyle}" />
+                <Button Grid.Row="1" Grid.Column="1"  Content="5" Style="{StaticResource NumericButtonStyle}" />
+                <Button Grid.Row="1" Grid.Column="2"  Content="6" Style="{StaticResource NumericButtonStyle}" />
+                <Button Grid.Row="2" Content="1" Style="{StaticResource NumericButtonStyle}" />
+                <Button Grid.Row="2" Grid.Column="1"  Content="2" Style="{StaticResource NumericButtonStyle}" />
+                <Button Grid.Row="2" Grid.Column="2"  Content="3" Style="{StaticResource NumericButtonStyle}" />
+                <Button Grid.Row="3" Grid.ColumnSpan="2" Content="0" Style="{StaticResource NumericButtonStyle}" />
+                <Button Grid.Row="3"  Grid.Column="2"  Content="." Style="{StaticResource NumericButtonStyle}" />
+            </Grid>            
             <!--#endregion-->
             <!--#region Boutons opérations -->
             <Button Grid.Row="1" Content="C" Style="{StaticResource OperationButtonStyle}" />
